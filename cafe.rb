@@ -19,7 +19,11 @@ def take_order(menus)
     puts "(#{i})#{menu[:name]}: #{menu[:price]}円"
   end
   print '>'
-  order_number = gets.to_i
+  order_number = gets.to_i - 1
+  if order_number < 0
+    puts "その番号の商品はありません！"
+    exit
+  end
   puts "#{menus[order_number][:name]}(#{menus[order_number][:price]}円)ですね。"
   order_number
 end
